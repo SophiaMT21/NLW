@@ -1,0 +1,19 @@
+#page-study #container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.page-header {
+    background-color: var(--color-primary);
+     display: flex;
+     flex-direction: column;
+}
+
+.page-header .top-bar-container {
+    width: 90%;
+    margin: 0auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
