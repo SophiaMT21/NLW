@@ -181,7 +181,7 @@
 
 .page-header .top-bar-container {
     width: 90%;
-    margin: 0auto;
+    margin: 0 auto;
 
     display: flex;
     align-items: center;
@@ -277,7 +277,7 @@
 
      .teacher-item > p {
          padding: 0 32px;
-         margin: 
+    
      }
 
      .teacher-item footer p strong {
