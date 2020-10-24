@@ -10,7 +10,7 @@ const proffys = [
           weekday: [0],
           time_from: [720],
           time_to: [1220]
-     }
+     },
 
      {
           name: "Denise Silva",
@@ -25,21 +25,34 @@ const proffys = [
      }
 ]
 
+function PageLanding(req, res) {
+return res.render("index.html")
+}
+
+function PageStudy(req, res) {
+return res.render("study.html", { proffys })
+}
+
+function PageGiveClasses(req, res) {
+ return res.render("give-classes.html")
+}
+
 const express = require('express')
 const server = express()
 
-server.use(express.static("public"))
-
-.get("/", (req, res) =>{
-     return res.sendFile(__dirname + "/views/index.html")
+//configurar ninjucks
+const nunjucks = require ('nunjucks')
+nunjucks.configure('src/views',{
+  express: server,
+  noCache: true,   
 })
 
-.get("/study", (req, res) => {
-     return res.sendFile(__dirname + "/views/study.html")
-})
-
-.get("/give-classes", (req, res) => {
-     return res.sendFile(__dirname + "/views/give-classes.html")
-})
+server
+// configurar arquivos estáticos (css, scripts, imagens)
+.use(express.static("public"))
+//rotas da aplicação
+.get("/", PageLanding)
+.get("/study", PageStudy)
+.get("/give-classes", PageGiveClasses)
 
 .listen(5500)
