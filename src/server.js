@@ -38,7 +38,7 @@ const subjects = [
  "Química",
 ]
 
-const weekday = [
+const weekdays = [
  "Domingo",
  "Segunda-feira",
  "Terça-feira",
@@ -59,9 +59,19 @@ return res.render("study.html", { proffys, filters, subjects, weekdays })
 }
 
 function PageGiveClasses(req, res) {
- return res.render("give-classes.html")
-}
+ const data = req.query
 
+const isNotEmpty = Object.keys(data).length > 0
+//se tiver dados (data)
+if (isNotEmpty) {
+//ADICIONAR dados a lista de proffys
+proffys.push(data)
+
+return res.redirect("/study")
+}
+//se não tiver dados, não adicionar
+return res.render( "give-classes.html", {subjects, weekdays})
+}
 //servidores
 const express = require('express')
 const server = express()
