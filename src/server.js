@@ -49,6 +49,12 @@ const weekdays = [
 ]
 
 //funcionalidades
+
+function getSubject(subjectNumber){
+ const position = +subjectNumber - 1
+ return subjects[position]
+}
+
 function PageLanding(req, res) {
 return res.render("index.html")
 }
@@ -64,6 +70,8 @@ function PageGiveClasses(req, res) {
 const isNotEmpty = Object.keys(data).length > 0
 //se tiver dados (data)
 if (isNotEmpty) {
+
+     data.subject = getSubject()
 //ADICIONAR dados a lista de proffys
 proffys.push(data)
 
