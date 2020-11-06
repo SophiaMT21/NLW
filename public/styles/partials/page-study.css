@@ -161,16 +161,17 @@
      margin-left: 1.6rem;
  }
 
- .teacher-item footer button:hover {
+ .teacher-item footer .button:hover {
      background: var(--color-secondary-dark);
  }
 
 
+#page-study main .no-results {
+    max-width: 30rem;
+    margin: 12rem auto;
+    text-align: center;
 
-
-
-
-
+}
 
 
  .page-header {
